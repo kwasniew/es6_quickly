@@ -248,8 +248,11 @@ describe('Classes: ES6', () => {
             return Rectangle;
         }
 
-        class Square extends getBase() {
-            constructor(length) {
+        class Square extends getBase
+        ()
+        {
+            constructor(length)
+            {
                 super(length, length);
             }
         }
@@ -279,8 +282,11 @@ describe('Classes: ES6', () => {
             return base;
         }
 
-        class Square extends mixin(Area, Serializable) {
-            constructor(length) {
+        class Square extends mixin
+        (Area, Serializable)
+        {
+            constructor(length)
+            {
                 super();
                 this.width = length;
                 this.length = length;
@@ -312,13 +318,13 @@ describe('Classes: ES6', () => {
         let a = new MyArray(1, 2, 3);
         let b = a.slice(1, 2);
 
-        assert.ok(b instanceof MyArray); 
+        assert.ok(b instanceof MyArray);
     });
 
     it('new.target can be used in constructors', function () {
         class MyClass {
             constructor() {
-                assert.strictEqual(new .target, MyClass);
+                assert.strictEqual(new.target, MyClass);
             }
         }
 
@@ -328,7 +334,7 @@ describe('Classes: ES6', () => {
     it('new.target is affected by the class', function () {
         class Base {
             constructor() {
-                assert.strictEqual(new .target, Derived);
+                assert.strictEqual(new.target, Derived);
             }
         }
         class Derived extends Base {
@@ -340,7 +346,7 @@ describe('Classes: ES6', () => {
     it('new.target allows to simulate abstract classes', function () {
         class Shape {
             constructor() {
-                if (new .target === Shape) {
+                if (new.target === Shape) {
                     throw new Error('this class cannot be instantiated directly');
                 }
             }
@@ -361,7 +367,8 @@ describe('Classes: ES6', () => {
     });
 
     it('classes cannot be called without new', function () {
-        class MyClass {}
+        class MyClass {
+        }
 
         assert.throws(() => {
             MyClass();
